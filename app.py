@@ -7,15 +7,8 @@ import io
 # Replicate API import (assuming you have the right setup and authentication)
 import replicate
 
-# Image comparison function
-def image_comparisonn(image1, image2):
-    image_comparison(
-        img1=image1,
-        img2=image2
-    )
-    
 # Main App
-st.title("Floor Image Generator")
+st.title("Floor Image Generator Demo")
 
 # Image uploader
 uploaded_image = st.file_uploader("Choose an image", type=["jpg", "png"])
@@ -50,10 +43,17 @@ if st.button('Generate Image'):
     with open("output.jpg", "wb") as handler:
     	handler.write(response)
     gen_img = Image.open("output.jpg").convert('RGB')
-    # Compare original and generated images
-    image_comparisonn(original, gen_img)
 else:
     st.write("Please upload an image and select a floor type to generate the modified image.")
 
+
+col1, col2 = st.columns(2)
+
+with col1:
+   st.image(original, caption='Before')
+
+with col2:
+   st.image(gen_img, caption=f'After with edited {floor_elements}')
+    
 if __name__ == '__main__':
     pass
