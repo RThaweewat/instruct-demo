@@ -8,7 +8,7 @@ import io
 import replicate
 
 # Image comparison function
-def image_comparison(image1, image2):
+def image_comparisonn(image1, image2):
     image_comparison(
         img1=image1,
         img2=image2
@@ -51,7 +51,7 @@ if st.button('Generate Image'):
     	handler.write(response)
     gen_img = Image.open("output.jpg").convert('RGB')
     # Compare original and generated images
-    image_comparison(original, gen_img)
+    image_comparisonn(original, gen_img)
 else:
     st.write("Please upload an image and select a floor type to generate the modified image.")
 
