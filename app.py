@@ -25,10 +25,10 @@ uploaded_image = st.file_uploader("Choose an image", type=["jpg", "png"])
 if uploaded_image is not None:
     img_path = uploaded_image
     original = Image.open(uploaded_image).convert('RGB')
-else:
-    original = Image.new("RGB", (512, 512), color="white")  # default white image
+if uploaded_image is None:
+    st.warning("Please upload an image first.")
+    st.stop()
 
-# Dropdown for floor elements
 floor_elements = [
     "wood", 
     "red carpet", 
