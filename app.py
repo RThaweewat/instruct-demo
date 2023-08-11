@@ -5,10 +5,11 @@ from PIL import Image
 import io
 import os
 import replicate
+st.set_page_config(page_title="Floor Demo", layout="wide")
 
 # Main App
 st.title("Floor Image Generator Demo")
-st.set_page_config(page_title="Floor Demo", layout="wide")
+
 
 # Image uploader
 uploaded_image = st.file_uploader("Choose an image", type=["jpg", "png"])
