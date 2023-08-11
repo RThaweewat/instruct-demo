@@ -43,17 +43,18 @@ if st.button('Generate Image'):
     with open("output.jpg", "wb") as handler:
     	handler.write(response)
     gen_img = Image.open("output.jpg").convert('RGB')
+    col1, col2 = st.columns(2)
+
+    with col1:
+       st.image(original, caption='Before')
+    
+    with col2:
+       st.image(gen_img, caption=f'After with edited {floor_elements}')
 else:
     st.write("Please upload an image and select a floor type to generate the modified image.")
 
 
-col1, col2 = st.columns(2)
 
-with col1:
-   st.image(original, caption='Before')
-
-with col2:
-   st.image(gen_img, caption=f'After with edited {floor_elements}')
     
 if __name__ == '__main__':
     pass
