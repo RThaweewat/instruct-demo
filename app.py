@@ -8,7 +8,7 @@ import io
 import replicate
 
 # Image comparison function
-def image_comparison(img1, img2):
+def image_comparison(image1, image2):
     # pil image
     # image = Image.open("image.jpg")
     # render image-comparison
