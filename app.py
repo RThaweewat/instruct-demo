@@ -50,10 +50,11 @@ if st.button('Generate Image'):
     )
     # Fetch the generated image
     response = requests.get(output[0])
-    generated_image = Image.open(io.BytesIO(response.content)).convert('RGB')
-    
+    with open("output.jpg", "wb") as handler:
+    	handler.write(img)
+    gen_img = Image.open("output.jpg").convert('RGB')
     # Compare original and generated images
-    image_comparison(original, generated_image)
+    image_comparison(original, gen_img)
 else:
     st.write("Please upload an image and select a floor type to generate the modified image.")
 
