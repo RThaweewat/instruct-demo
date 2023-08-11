@@ -42,8 +42,8 @@ if st.button('Generate Image'):
     output = replicate.run(
         os.environ["URL"],
         input={"image": img_path,
-               "prompt": f"Change floor to {selected_floor}"},
-	           "image_guidance_scale": scale,
+               "prompt": f"Change floor to {selected_floor}",
+	        "image_guidance_scale": scale}
     )
     # Fetch the generated image
     response = requests.get(output[0]).content
