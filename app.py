@@ -9,12 +9,9 @@ import replicate
 
 # Image comparison function
 def image_comparison(image1, image2):
-    # pil image
-    # image = Image.open("image.jpg")
-    # render image-comparison
     image_comparison(
         img1=image1,
-        img2=image2,
+        img2=image2
     )
     
 # Main App
