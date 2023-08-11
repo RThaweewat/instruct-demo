@@ -29,7 +29,12 @@ floor_elements = [
     "ceramic tiles", 
     "laminate"
 ]
-selected_floor = st.selectbox("Select a floor type:", floor_elements)
+
+cool1, cool2 = st.columns(2)
+with cool1:
+    selected_floor = st.selectbox("Select a floor type:", floor_elements)
+with cool2:
+    scale = st.slider('Select Intensity', 2, 5, 0.5)
 
 # Button to generate image
 if st.button('Generate Image'):
@@ -37,7 +42,8 @@ if st.button('Generate Image'):
     output = replicate.run(
         os.environ["URL"],
         input={"image": img_path,
-               "prompt": f"Change floor to {selected_floor}"}
+               "prompt": f"Change floor to {selected_floor}"},
+	           "image_guidance_scale": scale,
     )
     # Fetch the generated image
     response = requests.get(output[0]).content
@@ -53,8 +59,6 @@ if st.button('Generate Image'):
        st.image(gen_img, caption=f'After with edited {selected_floor}')
 else:
     st.write("Please upload an image and select a floor type to generate the modified image.")
-
-
 
     
 if __name__ == '__main__':
