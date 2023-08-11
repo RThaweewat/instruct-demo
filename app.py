@@ -3,8 +3,7 @@ import requests
 from streamlit_image_comparison import image_comparison
 from PIL import Image
 import io
-
-# Replicate API import (assuming you have the right setup and authentication)
+import os
 import replicate
 
 # Main App
@@ -34,7 +33,7 @@ selected_floor = st.selectbox("Select a floor type:", floor_elements)
 if st.button('Generate Image'):
     # Call to replicate
     output = replicate.run(
-        "timothybrooks/instruct-pix2pix:30c1d0b916a6f8efce20493f5d61ee27491ab2a60437c13c588468b9810ec23f",
+        os.environ["URL"],
         input={"image": img_path,
                "prompt": f"Change floor to {selected_floor}"}
     )
@@ -49,7 +48,7 @@ if st.button('Generate Image'):
        st.image(original, caption='Before')
     
     with col2:
-       st.image(gen_img, caption=f'After with edited {floor_elements}')
+       st.image(gen_img, caption=f'After with edited {selected_floor}')
 else:
     st.write("Please upload an image and select a floor type to generate the modified image.")
 
