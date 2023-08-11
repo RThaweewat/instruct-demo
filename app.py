@@ -49,7 +49,7 @@ if st.button('Generate Image'):
                "prompt": f"Change floor to {selected_floor}"}
     )
     # Fetch the generated image
-    response = requests.get(output[0])
+    response = requests.get(output[0]).content
     with open("output.jpg", "wb") as handler:
     	handler.write(response)
     gen_img = Image.open("output.jpg").convert('RGB')
