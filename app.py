@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from streamlit_image_comparison import image_comparison
 from PIL import Image
 import io
 
@@ -8,14 +9,14 @@ import replicate
 
 # Image comparison function
 def image_comparison(img1, img2):
-    # Add functionality to compare img1 and img2.
-    # Placeholder for now: Simply display both.
-    col1, col2 = st.beta_columns(2)
-    with col1:
-        st.image(img1, caption='Original Image', use_column_width=True)
-    with col2:
-        st.image(img2, caption='Generated Image', use_column_width=True)
-
+    # pil image
+    # image = Image.open("image.jpg")
+    # render image-comparison
+    image_comparison(
+        img1=ima1,
+        img2=ima2,
+    )
+    
 # Main App
 st.title("Floor Image Generator")
 
