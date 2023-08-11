@@ -1,2 +1,3 @@
 replicate
 Pillow
+streamlit-image-comparison
