@@ -34,7 +34,7 @@ cool1, cool2 = st.columns(2)
 with cool1:
     selected_floor = st.selectbox("Select a floor type:", floor_elements)
 with cool2:
-    scale = st.slider('Select Intensity', 2.0, 5.0, step = 0.5)
+    scale = st.slider('Select Intensity', 1.0, 5.0, step = 0.5)
 
 # Button to generate image
 if st.button('Generate Image'):
