@@ -13,8 +13,8 @@ def image_comparison(image1, image2):
     # image = Image.open("image.jpg")
     # render image-comparison
     image_comparison(
-        img1=img1,
-        img2=img2,
+        img1=image1,
+        img2=image2,
     )
     
 # Main App
