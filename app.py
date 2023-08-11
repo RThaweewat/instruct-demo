@@ -51,7 +51,7 @@ if st.button('Generate Image'):
     # Fetch the generated image
     response = requests.get(output[0])
     with open("output.jpg", "wb") as handler:
-    	handler.write(img)
+    	handler.write(response)
     gen_img = Image.open("output.jpg").convert('RGB')
     # Compare original and generated images
     image_comparison(original, gen_img)
